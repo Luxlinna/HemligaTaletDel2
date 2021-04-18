@@ -28,7 +28,7 @@ namespace HemligaTaletDel2
                 Console.WriteLine("\n Du förlorade !!! Det hemliga talet är : " + slump_tal);
             }
 
-            // Det för visa resultat untan 
+            // Det bara visa resultat untan villkor sätt ...
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\n \tResultat !!! \n \tDet hemliga talet är : " + slump_tal + " \n \tMedan ditt gissa talet är: " + gissa_tal);
             Console.Write("\nSkriva valfri tangent för att fortsätta ... ");
