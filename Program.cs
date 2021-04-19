@@ -8,7 +8,7 @@ namespace HemligaTaletDel2
         {
             Random randomerare = new Random();
             int slump_tal = randomerare.Next(1,101);
-            int gissa_tal = 0;
+            int gissa_tal;
             bool vinst = false;
 
             do 
