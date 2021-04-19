@@ -9,7 +9,7 @@ namespace HemligaTaletDel2
             Random randomerare = new Random();
             int slump_tal = randomerare.Next(1,101);
             int gissa_tal;
-            bool vinst = false;
+            int i = 0;
 
             do 
             {
@@ -18,6 +18,7 @@ namespace HemligaTaletDel2
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\n Skriva in ditt gissa talet från 1 till 100: ");
                     gissa_tal = Convert.ToInt32(Console.ReadLine());
+                    i++;
 
                     if (gissa_tal > slump_tal)
                     {
@@ -33,7 +34,7 @@ namespace HemligaTaletDel2
                     {
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Du vinner !!!");
-                        vinst = true;
+                        break;
                     }
                 }
                 catch (FormatException e)
@@ -42,7 +43,7 @@ namespace HemligaTaletDel2
                     Console.WriteLine(e.Message);
                 }
 
-            } while (vinst == false);
+            } while (i < 10);
 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.Write("\nSkriva valfri tangent för att fortsätta ... ");
