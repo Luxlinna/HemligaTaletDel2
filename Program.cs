@@ -6,31 +6,45 @@ namespace HemligaTaletDel2
     {
         static void Main(string[] args)
         {
-        
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Random randomerare = new Random();
-
             int slump_tal = randomerare.Next(1,101);
+            int gissa_tal = 0;
+            bool vinst = false;
 
-            Console.Write("\n Skriva in ditt gissa talet: ");
-            int gissa_tal = Convert.ToInt32(Console.ReadLine());
+            do 
+            {
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("\n Skriva in ditt gissa talet från 1 till 100: ");
+                    gissa_tal = Convert.ToInt32(Console.ReadLine());
 
-            if (gissa_tal < 1 || gissa_tal > 100)
-            {
-                Console.WriteLine("\n Ditt gissa talet är utanför räckvidd !!! ");
-            } 
-            else if (gissa_tal == slump_tal)
-            {
-                Console.WriteLine ("\n Du vinner !!! Det hemliga talet är : " + slump_tal);
-            } 
-            else
-            {
-                Console.WriteLine("\n Du förlorade !!! Det hemliga talet är : " + slump_tal);
-            }
+                    if (gissa_tal > slump_tal)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Det är högre ! gissa lägre talet...");
+                    }
+                    else if (gissa_tal < slump_tal)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Det är lägre ! gissa högre talet...");
+                    }
+                    else if (gissa_tal == slump_tal)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Du vinner !!!");
+                        vinst = true;
+                    }
+                }
+                catch (FormatException e)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine(e.Message);
+                }
 
-            // Det bara visa resultat untan villkor sätt ...
+            } while (vinst == false);
+
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("\n \tResultat !!! \n \tDet hemliga talet är : " + slump_tal + " \n \tMedan ditt gissa talet är: " + gissa_tal);
             Console.Write("\nSkriva valfri tangent för att fortsätta ... ");
             Console.ReadKey();
 
